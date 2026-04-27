@@ -1,10 +1,12 @@
 import React from "react";
 import InputField from "../../../components/ui/input-field";
-import Button from "../../../components/ui/button";
+import Button from "../../../components/ui/buttons/button";
 import type { SignInFormData } from "../libs/types";
 import { toast } from "sonner";
+import { useNavigate } from "react-router";
 
 const SignInForm = (): React.ReactElement => {
+  const navigate = useNavigate();
   const [signinFormData, setSigninFormData] = React.useState<SignInFormData>({
     email: "",
     password: "",
@@ -19,21 +21,21 @@ const SignInForm = (): React.ReactElement => {
 
     const logUserIn = async () => {
       try {
-        const logUserRes = await fetch(`${baseUrl}/auth/login`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(signinFormData),
-        });
+        // const logUserRes = await fetch(`${baseUrl}/auth/login`, {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify(signinFormData),
+        // });
 
-        const dto = await logUserRes.json(); // parse
+        // const dto = await logUserRes.json(); // parse
 
-        if (!logUserRes.ok || logUserRes.status > 399) {
-          throw dto;
-        }
+        // if (!logUserRes.ok || logUserRes.status > 399) {
+        //   throw dto;
+        // }
 
-        console.log("succes response: ", dto);
+        // console.log("succes response: ", dto);
 
         toast.success("Login Successful!");
       } catch (error) {
@@ -43,12 +45,14 @@ const SignInForm = (): React.ReactElement => {
         );
       }
     };
-
-    logUserIn();
+    // logUserIn();
   };
-
+  // const routeToApplyNow = () => {
+  //   navigate("/apply-now");
+  // };
   return (
     <form onSubmit={handleSignIn} className="space-y-8">
+      {/* <form onSubmit={handleSignIn} className="space-y-8"> */}
       <fieldset className="space-y-4">
         <InputField
           label="Email"
@@ -79,7 +83,9 @@ const SignInForm = (): React.ReactElement => {
         />
       </fieldset>
 
-      <Button type="submit">Sign In</Button>
+      <Button type="submit" onClick={() => navigate("/apply-now")}>
+        Sign In
+      </Button>
     </form>
   );
 };

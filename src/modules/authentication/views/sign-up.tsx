@@ -1,6 +1,6 @@
 import { GithubLogoIcon, GoogleLogoIcon } from "@phosphor-icons/react";
 import SignUpForm from "../forms/sign-up";
-import Button from "../../../components/ui/button";
+import Button from "../../../components/ui/buttons/button";
 import AuthHeader from "../components/auth-header";
 import FormDivider from "../components/form-divider";
 import { Link } from "react-router";

@@ -1,6 +1,6 @@
 import React from "react";
 import InputField from "../../../components/ui/input-field";
-import Button from "../../../components/ui/button";
+import Button from "../../../components/ui/buttons/button";
 import type { SignUpFormData } from "../libs/types";
 import { validateSignUpFields } from "../utils/validations";
 import { toast } from "sonner";
