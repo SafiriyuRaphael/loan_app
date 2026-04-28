@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { Buttons } from "../../../../components/ui/buttons";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 function Navbar() {
   const navigate = useNavigate();
-  const navItems = ["Home", "Loans", "How It Works", "About Us", "Contact"];
+  const navItems = [
+    { id: "home", label: "Home" },
+    { id: "loans", label: "Loans" },
+    { id: "how-it-works", label: "How It Works" },
+    { id: "about", label: "About Us" },
+    { id: "contact", label: "Contact" },
+  ];
   const [menuOpen, setMenuOpen] = useState(false);
 
   const routeToLogin = () => {
@@ -47,12 +53,13 @@ function Navbar() {
 
       <ul className="hidden md:flex items-center gap-8 font-medium text-gray-700">
         {navItems.map((li) => (
-          <li
-            key={li}
+          <a
+            key={li.id}
             className="cursor-pointer hover:text-green-600 transition"
+            href={`/#${li.id}`}
           >
-            {li}
-          </li>
+            {li.label}
+          </a>
         ))}
       </ul>
 

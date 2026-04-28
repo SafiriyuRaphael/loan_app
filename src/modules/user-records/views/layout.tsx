@@ -1,11 +1,26 @@
 // import React from "react";
-import { Outlet, useLocation } from "react-router";
+import { Outlet, useLocation, useNavigate } from "react-router";
 import { Toaster } from "sonner";
 import { NAVLINKS } from "../constant/nav-link";
 import { Check } from "lucide-react";
+import { Button, Buttons } from "../../../components/ui/buttons";
 
 const UserRecordslayout = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const navigateDetails = (action: "next" | "prev") => {
+    const currentLoc = location.pathname;
+    const currentNavLink = NAVLINKS.findIndex((li) => {
+      return currentLoc.endsWith(li.link);
+    });
+    const NextNavLink =
+      action === "next"
+        ? NAVLINKS[currentNavLink + 1]
+        : NAVLINKS[currentNavLink - 1];
+
+    navigate(NextNavLink.link);
+  };
 
   return (
     <div className="text-white h-dvh flex">
@@ -42,7 +57,22 @@ const UserRecordslayout = () => {
       <div className="w-full p-8">
         <main>
           <Toaster position="top-right" />
-          <Outlet />
+          <div className="h-[85vh] overflow-y-scroll">
+            <Outlet />
+          </div>
+          <hr className="bg-green-200  h-1" />
+          <div className="flex justify-end gap-2 mt-3.5">
+            <Buttons
+              text="Prev"
+              variant="primary"
+              onClick={() => navigateDetails("prev")}
+            />
+            <Buttons
+              text="Next"
+              variant="primary"
+              onClick={() => navigateDetails("next")}
+            />
+          </div>
         </main>
       </div>
     </div>

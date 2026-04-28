@@ -1,14 +1,15 @@
 export const NAVLINKS = [
   {
-    id: "loan",
-    label: "Loan Details",
-    link: "loan",
-  },
-  {
     id: "personal",
     label: "Personal Details",
     link: "personal",
   },
+  {
+    id: "loan",
+    label: "Loan Details",
+    link: "loan",
+  },
+
   {
     id: "account details",
     label: "Account Details",

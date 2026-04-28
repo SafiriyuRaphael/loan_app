@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 function LoanOption({ white = false }) {
   const navigate = useNavigate();
   return (
-    <section className="relative py-16 md:px-10">
+    <section className="relative py-16 md:px-10" id="loans">
       <div className="text-center mb-10 space-y-2">
         <h2
           className={`text-3xl md:text-4xl font-bold  ${white ? "text-gray-200" : "text-gray-900"}`}

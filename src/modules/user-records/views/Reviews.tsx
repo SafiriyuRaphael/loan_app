@@ -1,5 +1,3 @@
-// import React from 'react'
-
 import ReviewDta from "../forms/review-dta/reviews";
 
 const Reviews = () => {

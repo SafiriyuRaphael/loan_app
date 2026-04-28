@@ -7,7 +7,7 @@ import LoanDetailsForm from "./views/Loan";
 export const userRecordsRoute: RouteObject[] = [
   {
     path: "",
-    element: <Navigate to="loan" replace />,
+    element: <Navigate to="personal" replace />,
   },
   {
     path: "personal",
