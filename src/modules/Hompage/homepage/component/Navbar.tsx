@@ -10,6 +10,7 @@ function Navbar() {
   const routeToLogin = () => {
     navigate("/auth/signin");
   };
+  
 
   const routeToApply = () => {
     navigate("/auth/signup");

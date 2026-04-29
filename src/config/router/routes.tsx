@@ -8,7 +8,7 @@ import ApplyToLoan from "../../modules/Hompage/apply-now";
 import PersonalLoan from "../../modules/Hompage/views/PersonalLoan";
 import UserRecordslayout from "../../modules/user-records/views/layout";
 import { userRecordsRoute } from "../../modules/user-records/user-records.routes";
-
+import Contact from"../../modules/authentication/components/Contact.tsx";
 export const routes: RouteObject[] = [
   {
     path: "auth",
@@ -29,8 +29,14 @@ export const routes: RouteObject[] = [
     element: <UserRecordslayout />,
     children: userRecordsRoute,
   },
+    {
+    path:"/contact",
+    element:<Contact/>
+
+  },
   {
     path: "*",
     element: <h1>Oops!, page not found.</h1>,
   },
+  
 ];
