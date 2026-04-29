@@ -1,8 +1,8 @@
 import { Navigate, type RouteObject } from "react-router";
 import PersonalDetails from "./views/personal";
-import AccountDetails from "./views/Account";
-import Reviews from "./views/Reviews";
-import LoanDetailsForm from "./views/Loan";
+import AccountDetails from "./views/account";
+import Reviews from "./views/reviews";
+import LoanDetailsForm from "./views/loan";
 
 export const userRecordsRoute: RouteObject[] = [
   {

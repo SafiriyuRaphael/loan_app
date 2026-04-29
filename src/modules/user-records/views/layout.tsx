@@ -3,7 +3,7 @@ import { Outlet, useLocation, useNavigate } from "react-router";
 import { Toaster } from "sonner";
 import { NAVLINKS } from "../constant/nav-link";
 import { Check } from "lucide-react";
-import { Button, Buttons } from "../../../components/ui/buttons";
+import { Buttons } from "../../../components/ui/buttons";
 
 const UserRecordslayout = () => {
   const location = useLocation();

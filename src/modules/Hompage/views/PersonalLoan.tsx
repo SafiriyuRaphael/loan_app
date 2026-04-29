@@ -44,6 +44,8 @@ export const formData = {
   accountNumber: "",
   bank: "",
   accountName: "",
+  name: "",
+  message: "",
 };
 
 // function PersonalLoan() {

@@ -3,6 +3,7 @@ type Props = {
   variant: "primary" | "secondary";
   onClick?: () => void;
   disabled?: boolean;
+  type?: string;
 };
 
 function Buttons({ text, variant, onClick }: Props) {
