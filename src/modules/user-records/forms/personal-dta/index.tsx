@@ -1,7 +1,8 @@
 import InputField from "../../../../components/ui/input-field";
-import { formData } from "../../../Hompage/views/PersonalLoan";
+import { UserRecordsStore } from "../../store";
 
 export default function PersonalDetailsForm() {
+  const { userRecords, setUserRecords, updateUserRecords } = UserRecordsStore();
   return (
     <section>
       <form className="text-gray-400 py-8 flex flex-col items-start">
@@ -11,8 +12,10 @@ export default function PersonalDetailsForm() {
               placeholder="First Name"
               name="First Name"
               type="text"
-              value={formData.firstName}
-              onChange={() => {}}
+              value={userRecords?.firstName || ""}
+              onChange={(event) =>
+                updateUserRecords({ firstName: event.target.value })
+              }
               variant="primary"
             />
           </div>
@@ -23,8 +26,10 @@ export default function PersonalDetailsForm() {
               name="Last Name"
               type="text"
               variant="primary"
-              value={formData.lastName}
-              onChange={() => {}}
+              value={userRecords?.lastName || ""}
+              onChange={(event) =>
+                updateUserRecords({ lastName: event.target.value })
+              }
             />
           </div>
         </div>
@@ -40,8 +45,10 @@ export default function PersonalDetailsForm() {
               name="Street Address"
               type="text"
               variant="primary"
-              value={formData.streetAddress}
-              onChange={() => {}}
+              value={userRecords?.address || ""}
+              onChange={(event) =>
+                updateUserRecords({ address: event.target.value })
+              }
             />
           </div>
           <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
@@ -50,8 +57,10 @@ export default function PersonalDetailsForm() {
               name="Street Address"
               type="text"
               variant="primary"
-              value={formData.streetAddress}
-              onChange={() => {}}
+              value={userRecords?.address || ""}
+              onChange={(event) =>
+                updateUserRecords({ address: event.target.value })
+              }
             />
           </div>
         </div>
@@ -63,8 +72,10 @@ export default function PersonalDetailsForm() {
               name="City"
               type="text"
               variant="primary"
-              value={formData.city}
-              onChange={() => {}}
+              value={userRecords?.city || ""}
+              onChange={(event) =>
+                updateUserRecords({ city: event.target.value })
+              }
             />
           </div>
           <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
@@ -73,8 +84,10 @@ export default function PersonalDetailsForm() {
               name="State"
               type="text"
               variant="primary"
-              value={formData.state}
-              onChange={() => {}}
+              value={userRecords?.state || ""}
+              onChange={(event) =>
+                updateUserRecords({ state: event.target.value })
+              }
             />
           </div>
           <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
@@ -83,8 +96,10 @@ export default function PersonalDetailsForm() {
               name="Country"
               type="text"
               variant="primary"
-              value={formData.country}
-              onChange={() => {}}
+              value={userRecords?.country || ""}
+              onChange={(event) =>
+                updateUserRecords({ country: event.target.value })
+              }
             />
           </div>
         </div>
@@ -109,8 +124,10 @@ export default function PersonalDetailsForm() {
               name="Your Phone Number"
               type="text"
               variant="primary"
-              value={formData.phoneNumber}
-              onChange={() => {}}
+              value={userRecords?.phone || ""}
+              onChange={(event) =>
+                updateUserRecords({ phone: event.target.value })
+              }
             />
           </div>
 
@@ -127,8 +144,10 @@ export default function PersonalDetailsForm() {
               name="Your Email Address"
               type="text"
               variant="primary"
-              value={formData.email}
-              onChange={() => {}}
+              value={userRecords?.email || ""}
+              onChange={(event) =>
+                updateUserRecords({ email: event.target.value })
+              }
             />
           </div>
 
