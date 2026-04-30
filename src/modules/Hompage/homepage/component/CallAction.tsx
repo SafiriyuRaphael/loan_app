@@ -4,7 +4,7 @@ import { formData } from "../../views/PersonalLoan";
 
 function CallAction() {
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); // 🚨 stops page reload
+    e.preventDefault(); //  stops page reload
 
     console.log("Form submitted!");
   };
