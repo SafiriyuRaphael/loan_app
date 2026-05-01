@@ -1,11 +1,13 @@
+import { useState } from "react";
 import InputField from "../../../../components/ui/input-field";
 import { UserRecordsStore } from "../../store";
 
 export default function PersonalDetailsForm() {
-  const { userRecords, setUserRecords, updateUserRecords } = UserRecordsStore();
+  const { userRecords, updateUserRecords } = UserRecordsStore();
+
   return (
     <section>
-      <form className="text-gray-400 py-8 flex flex-col items-start">
+      <form className="text-black py-8 flex flex-col items-start">
         <div className=" mt-8 grid md:grid-cols-2 gap-4 w-full">
           <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
             <InputField

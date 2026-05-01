@@ -1,11 +1,12 @@
 import InputField from "../../../../components/ui/input-field";
-import { formData } from "../../../Hompage/views/PersonalLoan";
+import { UserRecordsStore } from "../../store";
 
 //Loan Details
 function LoanDetailsForm() {
+  const { setUserRecords, updateUserRecords, userRecords } = UserRecordsStore();
   return (
     <section className=" flex flex-col justify-between">
-      <form className="text-gray-400 py-8 flex flex-col items-start">
+      <form className="text-black py-8 flex flex-col items-start">
         <div className="mt-8 grid md:grid-cols-2 gap-10 w-full">
           <div className="border-2 rounded-lg border-gray-300 bg-white outline-none p-2">
             <InputField
@@ -14,8 +15,10 @@ function LoanDetailsForm() {
               type="number"
               inputMode="numeric"
               variant="primary"
-              value={formData.loanAmount}
-              onChange={() => {}}
+              value={userRecords?.loanAmount}
+              onChange={(e) => {
+                updateUserRecords({ loanAmount: e.target.value as any });
+              }}
             />
             <p className="text-xs text-gray-500 mt-1">
               Min: ₦50,000 – Max: ₦5,000,000
@@ -24,7 +27,13 @@ function LoanDetailsForm() {
 
           <div className="border-2 rounded-lg border-gray-300 bg-white p-2">
             <label className="text-sm text-gray-600">Loan Purpose</label>
-            <select className="w-full mt-1 outline-none">
+            <select
+              className="w-full mt-1 outline-none"
+              value={userRecords?.loanPurpose}
+              onChange={(e) => {
+                updateUserRecords({ loanPurpose: e.target.value });
+              }}
+            >
               <option>Select purpose</option>
               <option>Education</option>
               <option>Medical</option>
@@ -36,7 +45,13 @@ function LoanDetailsForm() {
 
           <div className="border-2 rounded-lg border-gray-300 bg-white p-2">
             <label className="text-sm text-gray-600">Loan Duration</label>
-            <select className="w-full mt-1 outline-none">
+            <select
+              className="w-full mt-1 outline-none"
+              value={userRecords?.loanDuration}
+              onChange={(e) => {
+                updateUserRecords({ loanDuration: e.target.value });
+              }}
+            >
               <option>Select duration</option>
               <option>3 Months</option>
               <option>6 Months</option>

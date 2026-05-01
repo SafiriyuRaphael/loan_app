@@ -9,6 +9,11 @@ export const NAVLINKS = [
     label: "Loan Details",
     link: "loan",
   },
+  // {
+  //   id: "additional",
+  //   label: "Additional Details",
+  //   link: "loan",
+  // },
 
   {
     id: "account details",

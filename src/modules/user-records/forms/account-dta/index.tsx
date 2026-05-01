@@ -1,11 +1,8 @@
-// import { validateKYC } from "../../../authentication/utils/Validation";
-// import type { KYCErrors } from "../../../authentication/libs/type";
-import { useState } from "react";
 import InputField from "../../../../components/ui/input-field";
-import { formData } from "../../../Hompage/views/PersonalLoan";
+import { UserRecordsStore } from "../../store";
 
 function BankKYC() {
-  const [idType, setIdType] = useState<"bvn" | "nin">("bvn");
+  const { userRecords, setUserRecords, updateUserRecords } = UserRecordsStore();
   return (
     <section className="text-black  py-6 flex flex-col gap-6 ">
       <form className="flex flex-col gap-6">
@@ -21,8 +18,10 @@ function BankKYC() {
                 name="accountNumber"
                 type="number"
                 placeholder="Enter account number"
-                value={formData.accountNumber}
-                onChange={() => {}}
+                value={userRecords?.accountNumber || ""}
+                onChange={(event) =>
+                  updateUserRecords({ accountNumber: event.target.value })
+                }
                 inputMode="numeric"
                 className="h-10 bg-white text-black"
               />
@@ -33,8 +32,10 @@ function BankKYC() {
                 <label className="text-xs text-gray-500 mb-1">Bank Name</label>
                 <select
                   name="bank"
-                  value=""
-                  onChange={() => {}}
+                  value={userRecords?.bankName || ""}
+                  onChange={(event) =>
+                    updateUserRecords({ bankName: event.target.value })
+                  }
                   className="h-10 px-3 text-sm border rounded-md outline-noneborder-red-500"
                 >
                   <option value="">Select bank</option>
@@ -71,16 +72,24 @@ function BankKYC() {
             <label className="flex items-center gap-2 cursor-pointer">
               <input
                 type="radio"
-                checked={idType === "bvn"}
-                onChange={() => {}}
+                checked={userRecords?.kycDocumentType === "bvn"}
+                onChange={() => {
+                  userRecords?.kycDocumentType !== "bvn"
+                    ? updateUserRecords({ kycDocumentType: "bvn" })
+                    : undefined;
+                }}
               />
               BVN
             </label>
             <label className="flex items-center gap-2 cursor-pointer">
               <input
                 type="radio"
-                checked={idType === "nin"}
-                onChange={() => {}}
+                checked={userRecords?.kycDocumentType === "nin"}
+                onChange={() => {
+                  userRecords?.kycDocumentType !== "nin"
+                    ? updateUserRecords({ kycDocumentType: "nin" })
+                    : undefined;
+                }}
               />
               NIN
             </label>
@@ -88,14 +97,22 @@ function BankKYC() {
 
           <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
             <InputField
-              label={idType === "bvn" ? "Enter BVN" : "Enter NIN"}
+              label={
+                userRecords?.kycDocumentType === "bvn"
+                  ? "Enter BVN"
+                  : "Enter NIN"
+              }
               name="identityNumber"
               type="number"
               placeholder={
-                idType === "bvn" ? "Enter your BVN" : "Enter your NIN"
+                userRecords?.kycDocumentType === "bvn"
+                  ? "Enter your BVN"
+                  : "Enter your NIN"
               }
-              value={"bvn"}
-              onChange={() => {}}
+              value={userRecords?.kycDocumentNumber}
+              onChange={(e) => {
+                updateUserRecords({ kycDocumentNumber: e.target.value });
+              }}
               inputMode="numeric"
               className="h-10 bg-white text-black"
             />

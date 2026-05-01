@@ -1,6 +1,9 @@
 // import React from "react";
 
+import { UserRecordsStore } from "../../store";
+
 const ReviewDta = () => {
+  const { userRecords } = UserRecordsStore();
   return (
     <div className=" flex justify-center p-4">
       <div className="w-full max-w-3xl flex flex-col bg-transparent">
@@ -25,19 +28,25 @@ const ReviewDta = () => {
             </div>
 
             <div className="p-4 grid grid-cols-2 gap-3 text-xs">
-              <span className="text-gray-500">Amount</span>
+              <span className="text-gray-500">Amount </span>
               <span className="text-lg font-semibold text-gray-900">
-                ₦500,000
+                {userRecords?.loanAmount || "₦0"}
               </span>
 
               <span className="text-gray-500">Purpose</span>
-              <span>Business</span>
+              <span className="text-lg font-semibold text-gray-900">
+                Business
+              </span>
 
               <span className="text-gray-500">Duration</span>
-              <span>6 Months</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {userRecords?.loanDuration || "not available"}
+              </span>
 
               <span className="text-gray-500">Repayment</span>
-              <span>Monthly</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {userRecords?.repaymentPlan}
+              </span>
 
               <span className="text-gray-500">Monthly Pay</span>
               <span className="text-green-600 font-semibold">₦87,000</span>
@@ -56,16 +65,24 @@ const ReviewDta = () => {
 
             <div className="p-4 grid grid-cols-2 gap-3 text-xs">
               <span className="text-gray-500">Name</span>
-              <span>John Doe</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {userRecords?.firstName} {userRecords?.lastName} ol
+              </span>
 
               <span className="text-gray-500">Phone</span>
-              <span>+234 801 234 5678</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {userRecords?.phone}
+              </span>
 
               <span className="text-gray-500">Email</span>
-              <span>john@email.com</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {userRecords?.email}
+              </span>
 
               <span className="text-gray-500">Employment</span>
-              <span>Employed</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {userRecords?.employmentStatus}
+              </span>
             </div>
           </div>
 
@@ -81,16 +98,26 @@ const ReviewDta = () => {
 
             <div className="p-4 grid grid-cols-2 gap-3 text-xs">
               <span className="text-gray-500">Account Name</span>
-              <span>John Doe</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {userRecords?.accountHolderName}
+              </span>
 
               <span className="text-gray-500">Number</span>
-              <span>****1234</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {userRecords?.accountNumber}
+              </span>
 
               <span className="text-gray-500">Bank</span>
-              <span>Access Bank</span>
+              <span className="text-lg font-semibold text-gray-900">
+                {userRecords?.bankName}
+              </span>
 
-              <span className="text-gray-500">BVN/NIN</span>
-              <span className="text-green-600">Verified ✔</span>
+              <span className="text-gray-500">
+                {userRecords?.kycDocumentType}
+              </span>
+              <span className="text-green-600">
+                {userRecords?.kycDocumentNumber}
+              </span>
             </div>
           </div>
         </div>

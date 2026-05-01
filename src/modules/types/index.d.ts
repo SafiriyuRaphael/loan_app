@@ -1,22 +1,21 @@
 type UserRecordType = {
-    id: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-    address: string;
-    city: string;
-    state: string;
-    country: string;
-    loanAmount: number;
-    loanPurpose: string;
-    loanDuration: number;
-    repaymentPlan: "monthly" | "weekly" | "biweekly";
-    employmentStatus: "employed" | "self-employed" | "unemployed" | "student";
-    accountNumber: string;
-    bankName: string;
-    accountHolderName: string;
-    kycDocumentType: "nin" | "bvn";
-    kycDocumentNumber: string;
-
-}
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  address: string;
+  city: string;
+  state: string;
+  country: string;
+  loanAmount: number;
+  loanPurpose: string;
+  loanDuration: string;
+  repaymentPlan: "monthly" | "weekly" | "biweekly";
+  employmentStatus: "employed" | "self-employed" | "unemployed" | "student";
+  accountNumber: string;
+  bankName: string;
+  accountHolderName: string;
+  kycDocumentType: "nin" | "bvn";
+  kycDocumentNumber: string;
+};
