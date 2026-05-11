@@ -2,7 +2,7 @@ import InputField from "../../../../components/ui/input-field";
 import { UserRecordsStore } from "../../store";
 
 function BankKYC() {
-  const { userRecords, setUserRecords, updateUserRecords } = UserRecordsStore();
+  const { userRecords, updateUserRecords } = UserRecordsStore();
   return (
     <section className="text-black  py-6 flex flex-col gap-6 ">
       <form className="flex flex-col gap-6">
@@ -11,8 +11,9 @@ function BankKYC() {
             Bank Details
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Account Number */}
+            <div className="px-3 py-2 border rounded-lg bg-white">
               <InputField
                 label="Account Number"
                 name="accountNumber"
@@ -27,39 +28,41 @@ function BankKYC() {
               />
             </div>
 
-            <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
-              <div className="flex flex-col">
-                <label className="text-xs text-gray-500 mb-1">Bank Name</label>
-                <select
-                  name="bank"
-                  value={userRecords?.bankName || ""}
-                  onChange={(event) =>
-                    updateUserRecords({ bankName: event.target.value })
-                  }
-                  className="h-10 px-3 text-sm border rounded-md outline-noneborder-red-500"
-                >
-                  <option value="">Select bank</option>
-                  <option>Access Bank</option>
-                  <option>GTBank</option>
-                  <option>First Bank</option>
-                  <option>UBA</option>
-                  <option>Zenith Bank</option>
-                </select>
-              </div>
+            {/* Bank Name */}
+            <div className="px-3 py-2 border rounded-lg bg-white">
+              <label className="text-sm font-semibold block mb-1">
+                Bank Name
+              </label>
+              <select
+                name="bank"
+                value={userRecords?.bankName || ""}
+                onChange={(event) =>
+                  updateUserRecords({ bankName: event.target.value })
+                }
+                className="w-full h-10 px-3 text-sm border rounded-md outline-none"
+              >
+                <option value="">Select bank</option>
+                <option>Access Bank</option>
+                <option>GTBank</option>
+                <option>First Bank</option>
+                <option>UBA</option>
+                <option>Zenith Bank</option>
+              </select>
             </div>
 
-            <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
+            <div className="md:col-span-2 px-3 py-2 border rounded-lg bg-white">
               <InputField
                 label="Account Name"
                 name="accountName"
                 type="text"
                 readOnly
-                className="h-10 bg-white text-black border-gray-300 md:col-span-2"
+                className="h-10 bg-white text-black"
               />
+
+              <p className="text-sm text-gray-500 mt-2">
+                Account name will appear here automatically.
+              </p>
             </div>
-            <p className="text-sm text-gray-500 mt-3">
-              Account name will apear here automatically.
-            </p>
           </div>
         </div>
 
@@ -68,7 +71,7 @@ function BankKYC() {
             Identity Verification (KYC)
           </h3>
 
-          <div className="flex gap-6 mb-4 text-gray-700">
+          <div className="flex gap-6  text-gray-700">
             <label className="flex items-center gap-2 cursor-pointer">
               <input
                 type="radio"
@@ -95,7 +98,7 @@ function BankKYC() {
             </label>
           </div>
 
-          <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
+          <div className="p-2 border-2 rounded-lg border-gray-300 bg-white outline-none">
             <InputField
               label={
                 userRecords?.kycDocumentType === "bvn"
@@ -114,7 +117,7 @@ function BankKYC() {
                 updateUserRecords({ kycDocumentNumber: e.target.value });
               }}
               inputMode="numeric"
-              className="h-10 bg-white text-black"
+              className=" bg-white text-black"
             />
           </div>
 

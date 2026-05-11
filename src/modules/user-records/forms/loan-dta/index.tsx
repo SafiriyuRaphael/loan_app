@@ -3,7 +3,7 @@ import { UserRecordsStore } from "../../store";
 
 //Loan Details
 function LoanDetailsForm() {
-  const { setUserRecords, updateUserRecords, userRecords } = UserRecordsStore();
+  const { updateUserRecords, userRecords } = UserRecordsStore();
   return (
     <section className=" flex flex-col justify-between">
       <form className="text-black py-8 flex flex-col items-start">
@@ -85,15 +85,39 @@ function LoanDetailsForm() {
             </legend>
             <div className="flex gap-4 flex-wrap">
               <label className="flex items-center gap-2">
-                <input type="radio" name="repaymentplan" />
+                <input
+                  type="radio"
+                  name="repaymentplan"
+                  value="monthly"
+                  checked={userRecords?.repaymentPlan === "monthly"}
+                  onChange={() => {
+                    updateUserRecords({ repaymentPlan: "monthly" });
+                  }}
+                />
                 Monthly
               </label>
               <label className="flex items-center gap-2">
-                <input type="radio" name="repaymentplan" />
+                <input
+                  type="radio"
+                  name="repaymentplan"
+                  value="monthly"
+                  checked={userRecords?.repaymentPlan === "weekly"}
+                  onChange={() => {
+                    updateUserRecords({ repaymentPlan: "weekly" });
+                  }}
+                />
                 Weekly
               </label>
               <label className="flex items-center gap-2">
-                <input type="radio" name="repaymentplan" />
+                <input
+                  type="radio"
+                  name="repaymentplan"
+                  value="monthly"
+                  checked={userRecords?.repaymentPlan === "biweekly"}
+                  onChange={() => {
+                    updateUserRecords({ repaymentPlan: "biweekly" });
+                  }}
+                />
                 Bi-weekly
               </label>
             </div>
@@ -105,19 +129,51 @@ function LoanDetailsForm() {
             </legend>
             <div className="flex gap-4 flex-wrap">
               <label className="flex items-center gap-2">
-                <input type="radio" name="employmentStatus" />
+                <input
+                  type="radio"
+                  name="employmentStatus"
+                  value="monthly"
+                  checked={userRecords?.employmentStatus === "employed"}
+                  onChange={() => {
+                    updateUserRecords({ employmentStatus: "employed" });
+                  }}
+                />
                 Employed
               </label>
               <label className="flex items-center gap-2">
-                <input type="radio" name="employmentStatus" />
+                <input
+                  type="radio"
+                  name="employmentStatus"
+                  value="monthly"
+                  checked={userRecords?.employmentStatus === "self-employed"}
+                  onChange={() => {
+                    updateUserRecords({ employmentStatus: "self-employed" });
+                  }}
+                />
                 Self-Employed
               </label>
               <label className="flex items-center gap-2">
-                <input type="radio" name="employmentStatus" />
+                <input
+                  type="radio"
+                  name="employmentStatus"
+                  value="monthly"
+                  checked={userRecords?.employmentStatus === "unemployed"}
+                  onChange={() => {
+                    updateUserRecords({ employmentStatus: "unemployed" });
+                  }}
+                />
                 Unemployed
               </label>
               <label className="flex items-center gap-2">
-                <input type="radio" name="employmentStatus" />
+                <input
+                  type="radio"
+                  name="employmentStatus"
+                  value="monthly"
+                  checked={userRecords?.employmentStatus === "student"}
+                  onChange={() => {
+                    updateUserRecords({ employmentStatus: "student" });
+                  }}
+                />
                 Student
               </label>
             </div>

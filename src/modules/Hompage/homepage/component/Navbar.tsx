@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Buttons } from "../../../../components/ui/buttons";
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 function Navbar() {
   const navigate = useNavigate();

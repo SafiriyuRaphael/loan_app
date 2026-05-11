@@ -4,7 +4,7 @@ function Process() {
   const activeStep = 2; // 👈 change this (0–4)
 
   return (
-    <section className="py-20 px-6 md:px-20 bg-gray-50">
+    <section className="py-20 px-6 md:px-20 bg-gray-50" id="how-it-works">
       <div className="text-center mb-15">
         <h2 className=" text-3xl md:text-4xl font-bold text-gray-900">
           How It Works

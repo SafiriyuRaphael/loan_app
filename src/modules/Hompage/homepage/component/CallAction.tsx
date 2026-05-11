@@ -10,7 +10,7 @@ function CallAction() {
   };
 
   return (
-    <section className=" bg-green-700 py-15 px-6 md:px-20 ">
+    <section className=" bg-green-700 py-15 px-6 md:px-20" id="contact">
       <h1 className="text-4xl text-white text-center mb-5 font-bold">
         <i>Contact Us</i>
       </h1>

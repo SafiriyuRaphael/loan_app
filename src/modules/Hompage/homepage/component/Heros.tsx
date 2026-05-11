@@ -1,10 +1,19 @@
 import { motion } from "framer-motion";
 import Buttons from "../../../../components/ui/buttons/Buttons";
 import Loan from "../../../../assets/image/Loan.svg";
+import { useNavigate } from "react-router";
 
 export default function Heros() {
+  const navigate = useNavigate();
+
+  const routeToApply = () => {
+    navigate("/auth/signup");
+  };
   return (
-    <section className="pt-6 px-6 md:px-20 min-h-screen bg-linear-to-b from-white to-green-50">
+    <section
+      className="pt-6 px-6 md:px-20 min-h-screen bg-linear-to-b from-white to-green-50"
+      id="home"
+    >
       <div className=" grid md:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -22,7 +31,11 @@ export default function Heros() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <Buttons text="Apply Now" variant="primary" />
+            <Buttons
+              text="Apply Now"
+              variant="primary"
+              onClick={routeToApply}
+            />
             <Buttons text="Learn More" variant="secondary" />
           </div>
 

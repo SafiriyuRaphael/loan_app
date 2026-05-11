@@ -1,8 +1,8 @@
-// import React from "react";
-
 import { UserRecordsStore } from "../../store";
+import { useNavigate } from "react-router";
 
 const ReviewDta = () => {
+  const navigate = useNavigate();
   const { userRecords } = UserRecordsStore();
   return (
     <div className=" flex justify-center p-4">
@@ -22,7 +22,10 @@ const ReviewDta = () => {
               <h2 className="font-semibold text-gray-800 text-sm">
                 Loan Details
               </h2>
-              <button className="text-xs text-blue-600 hover:underline">
+              <button
+                className="text-xs text-blue-600 hover:underline"
+                onClick={() => navigate("../loan")}
+              >
                 Edit
               </button>
             </div>
@@ -48,8 +51,8 @@ const ReviewDta = () => {
                 {userRecords?.repaymentPlan}
               </span>
 
-              <span className="text-gray-500">Monthly Pay</span>
-              <span className="text-green-600 font-semibold">₦87,000</span>
+              {/* <span className="text-gray-500">Monthly Pay</span>
+              <span className="text-green-600 font-semibold">₦87,000</span> */}
             </div>
           </div>
 
@@ -58,7 +61,10 @@ const ReviewDta = () => {
               <h2 className="font-semibold text-gray-800 text-sm">
                 Personal Details
               </h2>
-              <button className="text-xs text-blue-600 hover:underline">
+              <button
+                className="text-xs text-blue-600 hover:underline"
+                onClick={() => navigate("../personal")}
+              >
                 Edit
               </button>
             </div>
@@ -66,7 +72,7 @@ const ReviewDta = () => {
             <div className="p-4 grid grid-cols-2 gap-3 text-xs">
               <span className="text-gray-500">Name</span>
               <span className="text-lg font-semibold text-gray-900">
-                {userRecords?.firstName} {userRecords?.lastName} ol
+                {userRecords?.firstName} {userRecords?.lastName}
               </span>
 
               <span className="text-gray-500">Phone</span>
@@ -91,7 +97,10 @@ const ReviewDta = () => {
               <h2 className="font-semibold text-gray-800 text-sm">
                 Account Details
               </h2>
-              <button className="text-xs text-blue-600 hover:underline">
+              <button
+                className="text-xs text-blue-600 hover:underline"
+                onClick={() => navigate("../account")}
+              >
                 Edit
               </button>
             </div>

@@ -11,7 +11,10 @@ function Faq() {
   };
 
   return (
-    <section className="relative py-24 px-6 bg-green-50 overflow-hidden">
+    <section
+      className="relative py-24 px-6 bg-green-50 overflow-hidden"
+      id="about"
+    >
       <div className="absolute -top-25 -left-25 w-75 h-75 bg-green-400 opacity-20 blur-3xl rounded-full"></div>
 
       <div className="text-center mb-16">
