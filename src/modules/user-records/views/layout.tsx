@@ -4,10 +4,49 @@ import { Toaster } from "sonner";
 import { NAVLINKS } from "../constant/nav-link";
 import { Check } from "lucide-react";
 import { Buttons } from "../../../components/ui/buttons";
+import { UserRecordsStore } from "../store";
 
 const UserRecordslayout = () => {
+  const { userRecords } = UserRecordsStore();
   const location = useLocation();
   const navigate = useNavigate();
+
+  const currentLoc = location.pathname;
+  const currentNavLink = NAVLINKS.findIndex((li) => {
+    return currentLoc.endsWith(li.link);
+  });
+
+  const handleSubmit = (records: UserRecordType | null) => {
+    if (
+      !records?.accountHolderName ||
+      !records.accountNumber ||
+      !records.address ||
+      !records.bankName ||
+      !records.city ||
+      !records.country ||
+      !records.email ||
+      !records.employmentStatus ||
+      !records.firstName ||
+      !records.kycDocumentNumber ||
+      // !records.id ||
+      !records.kycDocumentType ||
+      !records.lastName ||
+      !records.loanAmount ||
+      !records.loanPurpose ||
+      !records.phone ||
+      !records.repaymentPlan ||
+      !records.state
+    ) {
+      alert("Please fill all forms to continue");
+      return;
+    }
+
+    if (!records?.confirmation) {
+      alert("Please check the box to continue");
+      return;
+    }
+    navigate("/dashboard");
+  };
 
   const navigateDetails = (action: "next" | "prev") => {
     const currentLoc = location.pathname;
@@ -67,11 +106,19 @@ const UserRecordslayout = () => {
               variant="primary"
               onClick={() => navigateDetails("prev")}
             />
-            <Buttons
-              text="Next"
-              variant="primary"
-              onClick={() => navigateDetails("next")}
-            />
+            {currentNavLink < 3 ? (
+              <Buttons
+                text="Next"
+                variant="primary"
+                onClick={() => navigateDetails("next")}
+              />
+            ) : (
+              <Buttons
+                text="submit"
+                variant="primary"
+                onClick={() => handleSubmit(userRecords)}
+              />
+            )}
           </div>
         </main>
       </div>

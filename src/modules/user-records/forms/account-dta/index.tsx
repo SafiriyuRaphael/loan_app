@@ -55,7 +55,10 @@ function BankKYC() {
                 label="Account Name"
                 name="accountName"
                 type="text"
-                readOnly
+                value={userRecords?.accountHolderName || ""}
+                onChange={(event) =>
+                  updateUserRecords({ accountHolderName: event.target.value })
+                }
                 className="h-10 bg-white text-black"
               />
 

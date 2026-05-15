@@ -18,4 +18,5 @@ type UserRecordType = {
   accountHolderName: string;
   kycDocumentType: "nin" | "bvn";
   kycDocumentNumber: string;
+  confirmation: string;
 };

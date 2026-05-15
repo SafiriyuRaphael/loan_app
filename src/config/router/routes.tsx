@@ -5,7 +5,7 @@ import HomePage from "../../modules/Hompage/views/HomePage";
 import ApplyToLoan from "../../modules/Hompage/apply-now";
 import UserRecordslayout from "../../modules/user-records/views/layout";
 import { userRecordsRoute } from "../../modules/user-records/user-records.routes";
-import DashboardPage from "../../modules/Hompage/views/DashboardPage";
+import LoanDashboard from "../../Loan-dashboard/dashboard";
 
 export const routes: RouteObject[] = [
   {
@@ -20,7 +20,7 @@ export const routes: RouteObject[] = [
   },
   {
     path: "/dashboard",
-    element: <DashboardPage />,
+    element: <LoanDashboard />,
     index: true,
   },
   {
@@ -31,6 +31,10 @@ export const routes: RouteObject[] = [
     path: "user-records",
     element: <UserRecordslayout />,
     children: userRecordsRoute,
+  },
+  {
+    path: "dashboard",
+    element: <LoanDashboard />,
   },
   {
     path: "*",

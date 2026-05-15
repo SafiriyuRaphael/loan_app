@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
 import { UserRecordsStore } from "../../store";
 import { useNavigate } from "react-router";
 
 const ReviewDta = () => {
   const navigate = useNavigate();
-  const { userRecords } = UserRecordsStore();
+  const { userRecords, updateUserRecords } = UserRecordsStore();
+
   return (
     <div className=" flex justify-center p-4">
       <div className="w-full max-w-3xl flex flex-col bg-transparent">
@@ -133,8 +135,15 @@ const ReviewDta = () => {
 
         <div className="shrink-0 bg-white border-t border-gray-100 p-3 space-y-3">
           <label className="flex items-start gap-2 text-xs text-gray-600">
-            <input type="checkbox" className="mt-1 w-3 h-3" />I confirm all
-            information is correct
+            <input
+              type="checkbox"
+              className="mt-1 w-3 h-3"
+              value={userRecords?.confirmation}
+              onChange={(e) =>
+                updateUserRecords({ confirmation: e.target.value })
+              }
+            />
+            I confirm all information is correct
           </label>
         </div>
       </div>

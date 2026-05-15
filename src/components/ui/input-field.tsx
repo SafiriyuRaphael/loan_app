@@ -6,9 +6,7 @@ export type InputFieldProps = {
   placeholder?: string;
   type?: "text" | "number" | "email" | "password";
   value?: string | number | readonly string[] | undefined;
-  onChange?: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-  ) => void;
+  onChange?: (e: any) => void;
   variant?: "primary" | "secondary";
   className?: string;
   disabled?: boolean;
