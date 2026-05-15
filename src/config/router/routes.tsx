@@ -8,6 +8,7 @@ import ApplyToLoan from "../../modules/Hompage/apply-now";
 // import PersonalLoan from "../../modules/Hompage/views/PersonalLoan";
 import UserRecordslayout from "../../modules/user-records/views/layout";
 import { userRecordsRoute } from "../../modules/user-records/user-records.routes";
+import LoanDashboard from "../../Loan-dashboard/dashboard";
 
 export const routes: RouteObject[] = [
   {
@@ -28,6 +29,10 @@ export const routes: RouteObject[] = [
     path: "user-records",
     element: <UserRecordslayout />,
     children: userRecordsRoute,
+  },
+  {
+    path: "dashboard",
+    element: <LoanDashboard/>,
   },
   {
     path: "*",
