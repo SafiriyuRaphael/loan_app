@@ -40,6 +40,18 @@ export default function PersonalDetailsForm() {
         </p>
 
         <div className="mt-3 grid md:grid-cols-2 gap-5 w-full">
+          {/* <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
+            <InputField
+              placeholder="Street Address"
+              name="Street Address"
+              type="text"
+              variant="primary"
+              value={userRecords?.address || ""}
+              onChange={(event) =>
+                updateUserRecords({ address: event.target.value })
+              }
+            />
+          </div> */}
           <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
             <InputField
               placeholder="Street Address"
@@ -52,21 +64,7 @@ export default function PersonalDetailsForm() {
               }
             />
           </div>
-          <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
-            <InputField
-              placeholder="Street Address"
-              name="Street Address"
-              type="text"
-              variant="primary"
-              value={userRecords?.address || ""}
-              onChange={(event) =>
-                updateUserRecords({ address: event.target.value })
-              }
-            />
-          </div>
-        </div>
 
-        <div className=" mt-5 grid md:grid-cols-3 gap-6 w-full">
           <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
             <InputField
               placeholder="City"
@@ -79,6 +77,9 @@ export default function PersonalDetailsForm() {
               }
             />
           </div>
+        </div>
+
+        <div className=" mt-5 grid md:grid-cols-2 gap-6 w-full">
           <div className=" border-2 rounded-lg border-gray-300 bg-white outline-none">
             <InputField
               placeholder="State"

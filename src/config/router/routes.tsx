@@ -6,6 +6,9 @@ import ApplyToLoan from "../../modules/Hompage/apply-now";
 import UserRecordslayout from "../../modules/user-records/views/layout";
 import { userRecordsRoute } from "../../modules/user-records/user-records.routes";
 import LoanDashboard from "../../Loan-dashboard/dashboard";
+import StudentLoan from "../../modules/Hompage/views/StudentLoan";
+import BusinessLoan from "../../modules/Hompage/views/BussinessLoan";
+import AgriculturalLoan from "../../modules/Hompage/views/AgriculturalLoan";
 
 export const routes: RouteObject[] = [
   {
@@ -32,9 +35,21 @@ export const routes: RouteObject[] = [
     element: <UserRecordslayout />,
     children: userRecordsRoute,
   },
+  // {
+  //   path: "dashboard",
+  //   element: <LoanDashboard />,
+  // },
   {
-    path: "dashboard",
-    element: <LoanDashboard />,
+    path: "student",
+    element: <StudentLoan />,
+  },
+  {
+    path: "business",
+    element: <BusinessLoan />,
+  },
+  {
+    path: "agric",
+    element: <AgriculturalLoan />,
   },
   {
     path: "*",
